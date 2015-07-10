@@ -30,16 +30,21 @@
 	            <artifactId>launch4j-maven-plugin</artifactId>
 				<configuration>
 					<headerType>gui</headerType>
-					<jar>../target/WorldsPackager-1.0-final.jar</jar>
-					<outfile>../target/WorldsPackager.exe</outfile>
+					<jar>../target/WinlightMain-1.0-final.jar</jar>
+					<outfile>../target/Winlight.exe</outfile>
 					<classPath>
-						<mainClass>co.q64.worldspackager.WorldsPackager</mainClass>
+						<mainClass>co.q64.winlight.Winlight</mainClass>
 						<preCp>anything</preCp>
 					</classPath>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
+	<dependencies>
+		<dependency>
+			<groupId>com.jhlabs</groupId>
+			<artifactId>filters</artifactId>
+		</dependency>
+	</dependencies>
 	<artifactId>WinlightMain</artifactId>
 </project>
