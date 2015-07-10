@@ -1,5 +1,7 @@
 package co.q64.winlight;
 
+import co.q64.winlight.gui.WindowManager;
+
 public class Winlight {
 
 	private static Winlight instance;
@@ -10,6 +12,6 @@ public class Winlight {
 	}
 
 	private void main() {
-		
+		WindowManager.getWindowManager().openWindow();
 	}
 }
