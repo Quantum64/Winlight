@@ -40,6 +40,25 @@ public class WindowManager {
 		return window;
 	}
 
+	public int getX() {
+		return Window.X;
+	}
+
+	public int getY() {
+		return Window.Y;
+	}
+
+	public int getWidth() {
+		return Window.WIDTH;
+	}
+
+	public int getHeight() {
+		if (window.isSmall()) {
+			return Window.SMALL_HEIGHT;
+		}
+		return Window.HEIGHT;
+	}
+
 	public BufferedImage getBlur() {
 		return blur;
 	}
