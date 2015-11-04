@@ -1,6 +1,8 @@
 package co.q64.winlight.gui;
 
+import java.awt.FontFormatException;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import co.q64.winlight.util.Blur;
 
@@ -24,7 +26,11 @@ public class WindowManager {
 
 	public void openWindow() {
 		blur = Blur.genBlur();
-		window.open();
+		try {
+			window.open();
+		} catch (FontFormatException | IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void showWindow() {
