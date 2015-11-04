@@ -9,6 +9,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JComponent;
+import javax.swing.JTextField;
 
 import co.q64.winlight.util.Images;
 import co.q64.winlight.util.Shadow;
@@ -16,9 +17,9 @@ import co.q64.winlight.util.Shadow;
 public class Renderer extends JComponent {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	protected Renderer() {
-		
+
 	}
 
 	@Override
@@ -33,6 +34,7 @@ public class Renderer extends JComponent {
 
 	@Override
 	public void paintComponent(Graphics g) {
+		System.out.println("Paint");
 		Graphics2D g2 = (Graphics2D) g;
 
 		int x = WindowManager.getWindowManager().getX();
