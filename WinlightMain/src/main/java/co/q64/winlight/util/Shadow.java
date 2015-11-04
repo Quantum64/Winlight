@@ -4,14 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import com.jhlabs.image.BlurFilter;
 import com.jhlabs.image.GaussianFilter;
 
 public class Shadow {
 
 	private static BufferedImage shadow;
 	private static GaussianFilter gf10 = new GaussianFilter(10);
-	private static GaussianFilter gf20 = new GaussianFilter(20);
+	private static GaussianFilter gf20 = new GaussianFilter(30);
 
 	public static BufferedImage getShadow(BufferedImage image, boolean refresh) {
 
@@ -33,28 +32,32 @@ public class Shadow {
 		BufferedImage glow = new BufferedImage(image.getWidth() + 10,
 				image.getHeight() + 60, image.getType());
 		Graphics2D g = glow.createGraphics();
-		g.drawImage(mask, 26, 12, image.getWidth() -23, image.getHeight() - 16, null);
+		g.drawImage(mask, 26, 12, image.getWidth() - 23,
+				image.getHeight() - 16, null);
 		g.dispose();
 		BufferedImage filteredGlow = new BufferedImage(image.getWidth() + 10,
 				image.getHeight() + 60, image.getType());
 		gf10.filter(glow, filteredGlow);
-		
+
 		BufferedImage drop = new BufferedImage(image.getWidth() + 10,
 				image.getHeight() + 60, image.getType());
 		Graphics2D g2 = drop.createGraphics();
-		g2.drawImage(mask, 36, 12, image.getWidth() -33, image.getHeight(), null);
+		g2.drawImage(mask, 55, 22, image.getWidth() - 75,
+				image.getHeight() - 18, null);
 		g2.dispose();
 		BufferedImage filteredDrop = new BufferedImage(image.getWidth() + 10,
 				image.getHeight() + 60, image.getType());
 		gf20.filter(drop, filteredDrop);
-		
+
 		BufferedImage result = new BufferedImage(image.getWidth() + 10,
 				image.getHeight() + 60, image.getType());
 		Graphics2D g2d = result.createGraphics();
-		g2d.drawImage(filteredGlow, 0, 0, filteredGlow.getWidth(), filteredGlow.getHeight(), null);
-		g2d.drawImage(filteredDrop, 0, 0, filteredDrop.getWidth(), filteredDrop.getHeight(), null);
+		g2d.drawImage(filteredGlow, 0, 0, filteredGlow.getWidth(),
+				filteredGlow.getHeight(), null);
+		g2d.drawImage(filteredDrop, 0, 0, filteredDrop.getWidth(),
+				filteredDrop.getHeight(), null);
 		g2d.dispose();
-		
-		return filteredGlow;
+
+		return result;
 	}
 }
