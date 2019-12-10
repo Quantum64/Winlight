@@ -8,7 +8,8 @@ public class Update implements Runnable {
 			if (!WindowManager.getWindowManager().getWindow().isVisible()) {
 				break;
 			}
-			WindowManager.getWindowManager().getWindow().getRenderer().repaint();
+			WindowManager.getWindowManager().getWindow().getRenderer()
+					.repaint();
 		}
 	}
 }
